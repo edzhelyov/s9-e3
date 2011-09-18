@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'circuit/app'
+rescue LoadError
+  $LOAD_PATH << File.expand_path('../../lib/', __FILE__)
+  require 'circuit/app'
+end
+
+Circuit::App.run!
