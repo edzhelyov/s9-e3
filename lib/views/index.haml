@@ -2,9 +2,12 @@
   %head
     %title Circuits builder
     %link{:href => '/circuit.css', :type => 'text/css', :rel => 'stylesheet'}
+    %script{:src => '/jquery-1.6.2.min.js', :type => 'text/javascript'}
+    %script{:src => '/jquery-ui-1.8.16.custom.min.js', :type => 'text/javascript'}
+    %script{:src => '/circuit.js', :type => 'text/javascript'}
   %body
     #board
       board
     #primitives
-      primitiv
+      #circle= @primitive.to_svg
     .clear

@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require_relative 'primitive'
 
 module Circuit
   class App < Sinatra::Base
@@ -6,6 +7,7 @@ module Circuit
     set :public, File.expand_path('../../public', __FILE__)
 
     get '/' do
+      @primitive = Primitive.new
       haml :index
     end
   end
