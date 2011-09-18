@@ -1,43 +1,36 @@
 # Academic Exercise: Digital Logic Simulator
 
-_written by Gregory Brown for Mendicant University core skills session #9_
+1. Web interface with two panels:
+  * Left panel where the actual circuit with wires is displayed
+  * Right panel with all available gates/switches
+  
+  User can drag and drop elements and connect them by pointing from source
+  element to destination element.
 
-I had a lot of fun coming up with the ["All Wired Up" PuzzleNode problem](http://puzzlenode.com/puzzles/18) 
-that was part of this session's entrance 
-exam. At the time I was writing it, I had thought about building a more 
-generally useful tool for playing around with simulated digital circuits, 
-but then I quickly got too busy to look into it further.
+  The circuit could be saved and then re used as available gate.
 
-Then, I started playing Minecraft and my interest in circuitry simulations was
-reignited! The game has a [full circuitry system](http://www.minecraftwiki.net/wiki/Redstone_circuits) for doing all sorts of fun logical
-processing based on the most primitive inputs. But Minecraft is much better
-as a game than as a learning environment, and it can be a very frustrating
-and tedious environment to try to study circuitry in. I want a tool that
-doesn't make me afraid of being attacked by zombies while I build my logic
-gates!
+  * Maybe I should allow only gate elements and handle the switch statements
+    in other view. You could assign on/off value to the left most input places
+    of gate ?
 
-In this exercise, I would like you to build a tool that makes exploring
-digital circuitry fun and interesting. The summary below provides some
-suggestions on what things in particular I have in mind, but everyone
-should be able to come up with their own unique take on the idea without
-too much overlap.
+2. Backed that compose the connection graph for the elements
+3. SVG representation - try to use Batik if possible
 
-## Exercise Summary
+# TODO
 
-- You should create a tool that makes exploring and learning about
-  logical circuitry fun and interesting.
-- You can use the "All Wired Up" problem and MineCraft's Redstone circuits
-  as an inspiration, but be sure to have some fresh ideas of your own.
-- You should be able to build modular gates that can be re-used in other circuits.
-- The way you handle input and output visualization is completely up to 
-  you
-- Your tool should be easy to work with for someone who wants to explore circuitry but is not necessarily a programmer.
-- It should be possible to assign inputs, evaluate the circuits, and then inspect their outputs.
-- Some sort of friendly debugging process and tools would be nice to have.
+1. Freeze circle into right panel
+2. Drag the copy of the cirle and drop it into the left panel
+3. Save the state of the left panel
 
-## Submission Guidelines
+4. Allow connection between circles in the left panel
+5. Save the state of the circle and their connection into graph object
+6. Reload the actual state
 
-If you plan to work on this exercise, you should fork this repository 
-and push code early and often during the course. The course 
-guidelines PDF explains the submission process in detail, but please 
-contact an instructor if you have any questions.
+7. Add input/output areas on the circle
+8. Handle connecting the output with input
+9. Create a chain of circles A -> B -> C -> D
+10. Save this chain into graph
+
+11. Handle on/off input simulation
+12. Add two inputs to circle
+13. Add execution logic
