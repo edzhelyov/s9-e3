@@ -7,7 +7,9 @@
     %script{:src => '/circuit.js', :type => 'text/javascript'}
   %body
     #board
-      board
+      :plain
+        <svg id="circuit" contentScriptType="text/ecmascript" width="200" xmlns:xlink="http://www.w3.org/1999/xlink" zoomAndPan="magnify" contentStyleType="text/css" height="200" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" version="1.0"><rect fill="black" x="0" width="198" height="198" y="0"/></svg>
     #primitives
-      #circle= @primitive.to_svg
+      - @primitives.each do |primitive|
+        .primitive= primitive.to_svg
     .clear
