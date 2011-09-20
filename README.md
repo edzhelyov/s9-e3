@@ -18,19 +18,19 @@
 
 # TODO
 
-X. Freeze circle into right panel
-X. Drag the copy of the cirle and drop it into the left panel
+X. Freeze rectangle into right panel
+X. Drag the copy of the rectangle and drop it into the left panel
 X. Save the state of the left panel
 
-4. Allow connection between circles in the left panel
-5. Save the state of the circle and their connection into graph object
+4. Allow connection between rectangles in the left panel
+5. Save the state of the rectangles and their connection into graph object
 6. Reload the actual state
 
-7. Add input/output areas on the circle
+7. Add input/output areas on the rectangle
 8. Handle connecting the output with input
-9. Create a chain of circles A -> B -> C -> D
+9. Create a chain of rectangles A -> B -> C -> D
 10. Save this chain into graph
 
 11. Handle on/off input simulation
-12. Add two inputs to circle
+12. Add two inputs to rectangle
 13. Add execution logic
