@@ -18,9 +18,9 @@
 
 # TODO
 
-1. Freeze circle into right panel
-2. Drag the copy of the cirle and drop it into the left panel
-3. Save the state of the left panel
+X. Freeze circle into right panel
+X. Drag the copy of the cirle and drop it into the left panel
+X. Save the state of the left panel
 
 4. Allow connection between circles in the left panel
 5. Save the state of the circle and their connection into graph object
