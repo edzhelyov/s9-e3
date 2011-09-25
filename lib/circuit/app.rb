@@ -34,6 +34,8 @@ module Circuit
     get '/add_element' do
       primitive = Primitive.factory(params[:type])
       C.add_element(primitive, params[:x], params[:y])
+
+      C.to_s
     end
 
     get '/toggle_source' do
