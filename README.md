@@ -1,36 +1,14 @@
 # Academic Exercise: Digital Logic Simulator
 
-1. Web interface with two panels:
-  * Left panel where the actual circuit with wires is displayed
-  * Right panel with all available gates/switches
-  
-  User can drag and drop elements and connect them by pointing from source
-  element to destination element.
+# Usage
 
-  The circuit could be saved and then re used as available gate.
+This run on JRuby with 1.9 compatability `export JRUBY_OPTS=--1.9`.
+Install the dependencies with `bundle install`.
+Run the `./bin/circuit` executable, this will start a WEBrick server with sinatra app at 4567 port.
 
-  * Maybe I should allow only gate elements and handle the switch statements
-    in other view. You could assign on/off value to the left most input places
-    of gate ?
+# Interface
+You have two panels: one at left that where the actual circuit is drawn and one at right when primitives elements are listed.
+Each primitive has inputs which are represented as little circles on the left side and output which is the little circle on the right.
+If you click on the inputs they will toggle their state, as black is for 'off' and yellow for 'on'.
 
-2. Backed that compose the connection graph for the elements
-3. SVG representation - try to use Batik if possible
-
-# TODO
-
-X. Freeze rectangle into right panel
-X. Drag the copy of the rectangle and drop it into the left panel
-X. Save the state of the left panel
-
-4. Allow connection between rectangles in the left panel
-5. Save the state of the rectangles and their connection into graph object
-6. Reload the actual state
-
-7. Add input/output areas on the rectangle
-8. Handle connecting the output with input
-9. Create a chain of rectangles A -> B -> C -> D
-10. Save this chain into graph
-
-11. Handle on/off input simulation
-12. Add two inputs to rectangle
-13. Add execution logic
+You can connect elements by clicking on the output circle of the source element and clicking on the appropriate input circle of the destination element. Then you can toggle the source of different elements for see how the whole circuit reacts to the changes.

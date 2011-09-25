@@ -23,6 +23,13 @@
 .primitive {
   margin-bottom: 5px;
 }
+.primitive svg {
+  cursor: pointer;
+}
+
+cirle {
+  cursor: pointer;
+}
 
 #forms form {
   display: inline;
