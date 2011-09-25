@@ -23,8 +23,6 @@ module Circuit
     C = Schema.new
 
     get '/' do
-      C.add_element(AND.new, 100, 100)
-      C.add_element(OR.new, 100, 50)
       @circuit = C
       primitives
 
@@ -45,7 +43,10 @@ module Circuit
     end
 
     get '/connect' do
-      C.connect(params[:from], params[:to], params[:source])
+      C.connect(params[:from].to_i, params[:to].to_i, params[:source].to_i)
+      p C
+
+      C.to_s
     end
 
 #    post '/save' do

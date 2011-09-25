@@ -13,7 +13,7 @@ module Circuit
     end
 
     def connect_with(pos, other)
-      @inputs[pos] == other
+      @inputs[pos] = other
     end
 
     def toggle_source(source)

@@ -30,6 +30,8 @@ module Circuit
     end
 
     def connect(from, to, source)
+      @elements[to].connect_with(source, @elements[from])
+#      draw_wire(from.output_coordinates, to.input_coordinates(source))
     end
   end
 end
