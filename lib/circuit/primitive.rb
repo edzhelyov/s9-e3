@@ -16,19 +16,24 @@ module Circuit
       # Fix naming collision with Batik's own #color
       type = @type
       color = @color
-      input_1 = inputs[0].execute ? 'yellow' : 'black'
-      input_2 = inputs[1].execute ? 'yellow' : 'black'
       output = execute ? 'yellow' : 'black'
 
-      Batik::SVG.new(:width => 40, :height => 40) do
-        group('data-type' => type, 'font-size' => 8) do
-          rectangle(:fill => color, :x => 0, :y => 0, :width => 40, :height => 40)
-          circle(:class => 'input', :cx => 5, :cy => 5, :r => 3, 'data-source' => 'off', :fill => input_1)
-          circle(:class => 'input', :cx => 5, :cy => 35, :r => 3, 'data-source' => 'off', :fill => input_2)
-          circle(:class => 'output', :cx => 35, :cy => 20, :r => 3, 'data-source' => 'off', :fill => output)
-          text(:x => 10, :y => 22, :body => type)
-        end
-      end
+      svg = Batik::SVG.new(:width => 40, :height => 40)
+      group = Batik::Group.new('data-type' => type, 'font-size' => 8)
+      group.rectangle(:fill => color, :x => 0, :y => 0, :width => 40, :height => 40)
+      build_inputs(group)
+      group.circle(:class => 'output', :cx => 35, :cy => 20, :r => 3, 'data-source' => 'off', :fill => output)
+      group.text(:x => 10, :y => 22, :body => type)
+      svg.elements << group
+
+      svg
+    end
+
+    def build_inputs(group)
+      input_1 = inputs[0].execute ? 'yellow' : 'black'
+      input_2 = inputs[1].execute ? 'yellow' : 'black'
+      group.circle(:class => 'input', :cx => 5, :cy => 5, :r => 3, 'data-source' => 'off', :fill => input_1)
+      group.circle(:class => 'input', :cx => 5, :cy => 35, :r => 3, 'data-source' => 'off', :fill => input_2)
     end
 
     def to_svg
@@ -69,6 +74,23 @@ module Circuit
 
     def execute
       @inputs[0].execute ^ @inputs[1].execute
+    end
+  end
+
+  class NOT < Primitive
+    def initialize(options = {})
+      @inputs = options[:inputs] || [OFF]
+      @type = 'NOT'
+      @color = 'red'
+    end
+
+    def build_inputs(group)
+      input_1 = inputs[0].execute ? 'yellow' : 'black'
+      group.circle(:class => 'input', :cx => 5, :cy => 5, :r => 3, 'data-source' => 'off', :fill => input_1)
+    end
+
+    def execute
+      ! @inputs[0].execute
     end
   end
 
