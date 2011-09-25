@@ -7,7 +7,7 @@ module Circuit
     def self.from_json(json)
       elements = JSON.parse(json)
 
-      new(elements.map{ |e| Primitive.new(e) })
+      new(elements.map{ |e| Primitive.factory(e['type'], e) })
     end
 
     def initialize(elements)

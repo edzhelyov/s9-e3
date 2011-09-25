@@ -9,24 +9,25 @@ module Circuit
     set :views, File.expand_path('../../views', __FILE__)
     set :public, File.expand_path('../../public', __FILE__)
 
+    def primitives
+      @primitives = [
+        Primitive.factory('AND'), 
+        Primitive.factory('OR'),
+        Primitive.factory('XOR')
+      ]
+    end
+
     get '/' do
       @circuit = nil
-      @primitives = [
-        Primitive.new('type' => 'AND'), 
-        Primitive.new('type' => 'OR'),
-        Primitive.new('type' => 'XOR')
-      ]
+      primitives
 
       haml :index
     end
 
     post '/save' do
       @circuit = params[:circuit]
-      @primitives = [
-        Primitive.new(:type => 'AND'), 
-        Primitive.new(:type => 'OR'),
-        Primitive.new(:type => 'XOR')
-      ]
+      primitives
+
       @elements = Elements.from_json(params[:elements])
       pp @elements
 
