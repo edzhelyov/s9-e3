@@ -19,3 +19,7 @@
 .clear {
   clear: both;
 }
+
+.primitive {
+  margin-bottom: 5px;
+}

@@ -11,14 +11,22 @@ module Circuit
 
     get '/' do
       @circuit = nil
-      @primitives = [Primitive.new, GreePrimitive.new]
+      @primitives = [
+        Primitive.new('type' => 'AND'), 
+        Primitive.new('type' => 'OR'),
+        Primitive.new('type' => 'XOR')
+      ]
 
       haml :index
     end
 
     post '/save' do
       @circuit = params[:circuit]
-      @primitives = [Primitive.new, GreePrimitive.new]
+      @primitives = [
+        Primitive.new(:type => 'AND'), 
+        Primitive.new(:type => 'OR'),
+        Primitive.new(:type => 'XOR')
+      ]
       @elements = Elements.from_json(params[:elements])
       pp @elements
 
