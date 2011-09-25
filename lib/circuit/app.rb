@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'haml'
+require_relative '../../vendor/batik/lib/batik'
 require_relative 'primitive'
 require_relative 'elements'
 require 'pp'
