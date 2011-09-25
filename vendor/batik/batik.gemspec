@@ -1,7 +1,7 @@
 require File.expand_path('../lib/batik', __FILE__)
 
 Gem::Specification.new do |s|
-  s.name          = "Batik SVG Ruby wrapper"
+  s.name          = "batik"
   s.version       = Batik::VERSION
   s.platform      = Gem::Platform::RUBY
   s.authors       = ["Evgeni Dzhelyov"]
