@@ -23,3 +23,7 @@
 .primitive {
   margin-bottom: 5px;
 }
+
+#forms form {
+  display: inline;
+}

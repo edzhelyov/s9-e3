@@ -49,6 +49,12 @@ module Circuit
       C.to_s
     end
 
+    get '/clean' do
+      C = Schema.new
+
+      redirect '/'
+    end
+
 #    post '/save' do
 #      @circuit = params[:circuit]
 #      primitives
