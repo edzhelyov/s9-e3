@@ -12,6 +12,10 @@ module Circuit
       @color = 'red'
     end
 
+    def connect_with(pos, other)
+      @inputs[pos] == other
+    end
+
     def svg
       # Fix naming collision with Batik's own #color
       type = @type
@@ -98,11 +102,19 @@ module Circuit
     def self.execute
       true
     end
+
+    def self.connection_size
+      0
+    end
   end
 
   class OFF
     def self.execute
       false
+    end
+
+    def self.connection_size
+      0
     end
   end
 end
