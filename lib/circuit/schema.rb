@@ -26,6 +26,7 @@ module Circuit
     end
 
     def toggle_source(id, source)
+      @elements[id].toggle_source(source)
     end
 
     def connect(from, to, source)

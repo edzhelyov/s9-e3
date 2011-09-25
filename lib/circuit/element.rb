@@ -17,5 +17,9 @@ module Circuit
 
       group
     end
+
+    def toggle_source(source)
+      @primitive.toggle_source(source)
+    end
   end
 end

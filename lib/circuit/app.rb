@@ -39,7 +39,9 @@ module Circuit
     end
 
     get '/toggle_source' do
-      C.toggle_source(params[:id], params[:source])
+      C.toggle_source(params[:id].to_i, params[:source].to_i)
+
+      C.to_s
     end
 
     get '/connect' do

@@ -16,6 +16,15 @@ module Circuit
       @inputs[pos] == other
     end
 
+    def toggle_source(source)
+      inp = inputs[source]
+      if inp == ON
+        inputs[source] = OFF
+      elsif inp == OFF
+        inputs[source] = ON
+      end
+    end
+
     def svg
       # Fix naming collision with Batik's own #color
       type = @type
@@ -36,8 +45,8 @@ module Circuit
     def build_inputs(group)
       input_1 = inputs[0].execute ? 'yellow' : 'black'
       input_2 = inputs[1].execute ? 'yellow' : 'black'
-      group.circle(:class => 'input', :cx => 5, :cy => 5, :r => 3, 'data-source' => 'off', :fill => input_1)
-      group.circle(:class => 'input', :cx => 5, :cy => 35, :r => 3, 'data-source' => 'off', :fill => input_2)
+      group.circle(:class => 'input', :cx => 5, :cy => 5, :r => 3, 'data-source' => '0', :fill => input_1)
+      group.circle(:class => 'input', :cx => 5, :cy => 35, :r => 3, 'data-source' => '1', :fill => input_2)
     end
 
     def to_svg
@@ -90,7 +99,7 @@ module Circuit
 
     def build_inputs(group)
       input_1 = inputs[0].execute ? 'yellow' : 'black'
-      group.circle(:class => 'input', :cx => 5, :cy => 5, :r => 3, 'data-source' => 'off', :fill => input_1)
+      group.circle(:class => 'input', :cx => 5, :cy => 5, :r => 3, 'data-source' => '0', :fill => input_1)
     end
 
     def execute
