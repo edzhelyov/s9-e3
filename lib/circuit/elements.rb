@@ -11,7 +11,10 @@ module Circuit
     end
 
     def initialize(elements)
-      @map = {}
+      @map = {
+        'on' => ON,
+        'off' => OFF
+      }
       elements.each do |e|
         @map[e.id] = e
       end

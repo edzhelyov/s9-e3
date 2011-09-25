@@ -42,4 +42,10 @@ module Circuit
       @color = 'violet'
     end
   end
+
+  class ON
+  end
+
+  class OFF
+  end
 end
