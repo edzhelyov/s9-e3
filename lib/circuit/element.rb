@@ -51,10 +51,15 @@ module Circuit
   end
 
   class Wire
-    def initialize(from, to)
+    def initialize(from, to, source)
       @from = from
       @to = to
+      @source = source
 
+      draw(@from.output_coordinates, @to.input_coordinates(@source))
+    end
+
+    def draw(from, to)
       line = "M #{from.x} #{from.y} L #{to.x} #{to.y}"
       @wire = Batik::Path.new(:stroke => 'lightgray', :d => line)
     end
