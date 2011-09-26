@@ -45,7 +45,12 @@ module Circuit
 
     get '/connect' do
       C.connect(params[:from].to_i, params[:to].to_i, params[:source].to_i)
-      p C
+
+      C.to_s
+    end
+
+    get '/disconnect' do
+      C.disconnect(params[:from].to_i, params[:to].to_i, params[:source].to_i)
 
       C.to_s
     end

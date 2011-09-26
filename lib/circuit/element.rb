@@ -24,6 +24,10 @@ module Circuit
       @primitive.toggle_source(source)
     end
 
+    def disconnect(pos, other)
+      @primitive.inputs[pos] = OFF
+    end
+
     def connect_with(pos, other)
       @primitive.connect_with(pos, other.primitive)
     end
@@ -66,6 +70,10 @@ module Circuit
 
     def to_svg
       @wire
+    end
+
+    def eq(from, to, source)
+      @from == from && @to == to && @source == source
     end
   end
 end

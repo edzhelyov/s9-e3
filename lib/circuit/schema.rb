@@ -36,8 +36,20 @@ module Circuit
       draw_wire(from, to, source)
     end
 
+    def disconnect(from, to, source)
+      from = @elements[from]
+      to = @elements[to]
+      to.disconnect(source, from)
+      remove_wire(from, to, source)
+    end
+
     def draw_wire(from, to, source)
       @elements << Wire.new(from, to, source)
+    end
+
+    def remove_wire(from, to, source)
+      w = @elements.select { |x| x.kind_of?(Wire) }.detect { |x| x.eq(from, to, source) }
+      @elements.delete(w)
     end
   end
 end
