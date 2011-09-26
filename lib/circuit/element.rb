@@ -1,6 +1,6 @@
 module Circuit
   class Element
-    attr_reader :primitive
+    attr_reader :primitive, :id
 
     def initialize(id, primitive, x, y)
       @primitive = primitive
@@ -67,7 +67,7 @@ module Circuit
 
     def draw(from, to)
       line = "M #{from.x} #{from.y} L #{to.x} #{to.y}"
-      @wire = Batik::Path.new(:stroke => 'lightgray', :d => line)
+      @wire = Batik::Path.new(:stroke => 'lightgray', 'stroke-width' => 3, :d => line, 'data-from' => @from.id , 'data-to' => @to.id, 'data-source' => @source, :class => 'wire')
     end
 
     def to_svg
