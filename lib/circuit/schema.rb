@@ -2,7 +2,8 @@ module Circuit
   class Schema
     def initialize
       @elements = []
-
+      @map = {}
+      @uid = 0
     end
 
     def container
@@ -20,32 +21,38 @@ module Circuit
       svg.to_s
     end
 
+    def next_uid
+      @uid += 1
+    end
+
     def add_element(primitive, x, y)
-      id = @elements.size
-      @elements << Element.new(id, primitive, x, y)
+      id = next_uid
+      el = Element.new(id, primitive, x, y)
+      @map[id] = el
+      @elements << el
     end
 
     def toggle_source(id, source)
-      @elements[id].toggle_source(source)
+      @map[id].toggle_source(source)
     end
 
     def connect(from, to, source)
-      from = @elements[from]
-      to = @elements[to]
+      from = @map[from]
+      to = @map[to]
       to.connect_with(source, from)
       draw_wire(from, to, source)
     end
 
     def disconnect(from, to, source)
-      from = @elements[from]
-      to = @elements[to]
+      from = @map[from]
+      to = @map[to]
       to.disconnect(source, from)
       remove_wire(from, to, source)
     end
 
     def toggle_connection(from, to, source)
-      f= @elements[from]
-      t= @elements[to]
+      f= @map[from]
+      t= @map[to]
       if @elements.include?(Wire.new(f, t, source))
         disconnect(from, to, source)
       else
