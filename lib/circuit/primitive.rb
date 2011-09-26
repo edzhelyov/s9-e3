@@ -19,6 +19,9 @@ module Circuit
     end
 
     def connect_with(pos, other)
+      unless [ON, OFF].include?(@inputs[pos])
+        return false
+      end
       @inputs[pos] = other
     end
 

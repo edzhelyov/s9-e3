@@ -39,8 +39,9 @@ module Circuit
     def connect(from, to, source)
       from = @map[from]
       to = @map[to]
-      to.connect_with(source, from)
-      draw_wire(from, to, source)
+      if to.connect_with(source, from)
+        draw_wire(from, to, source)
+      end
     end
 
     def disconnect(from, to, source)
