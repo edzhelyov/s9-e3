@@ -60,15 +60,5 @@ module Circuit
 
       redirect '/'
     end
-
-#    post '/save' do
-#      @circuit = params[:circuit]
-#      primitives
-#
-#      @elements = Elements.from_json(params[:elements])
-#      pp @elements
-#
-#      haml :index
-#    end
   end
 end
