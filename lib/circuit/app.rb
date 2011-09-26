@@ -16,7 +16,8 @@ module Circuit
         Primitive.factory('AND'), 
         Primitive.factory('OR'),
         Primitive.factory('XOR'),
-        Primitive.factory('NOT')
+        Primitive.factory('NOT'),
+        Primitive.factory('SWITCH')
       ]
     end
 

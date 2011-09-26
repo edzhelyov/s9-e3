@@ -107,6 +107,18 @@ module Circuit
     end
   end
 
+  class SWITCH < NOT
+    def initialize(options = {})
+      super
+      @type = 'SWITCH'
+      @color = 'gray'
+    end
+
+    def execute
+      @inputs[0].execute
+    end
+  end
+
   class ON
     def self.execute
       true
