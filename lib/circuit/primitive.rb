@@ -22,6 +22,10 @@ module Circuit
       @inputs[pos] = other
     end
 
+    def disconnect(pos)
+      @inputs[pos] = OFF
+    end
+
     def toggle_source(source)
       inp = inputs[source]
       if inp == ON

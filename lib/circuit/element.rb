@@ -25,7 +25,7 @@ module Circuit
     end
 
     def disconnect(pos, other)
-      @primitive.inputs[pos] = OFF
+      @primitive.disconnect(pos)
     end
 
     def connect_with(pos, other)
@@ -55,6 +55,8 @@ module Circuit
   end
 
   class Wire
+    attr_reader :from, :to, :source
+
     def initialize(from, to, source)
       @from = from
       @to = to
@@ -72,8 +74,8 @@ module Circuit
       @wire
     end
 
-    def eq(from, to, source)
-      @from == from && @to == to && @source == source
+    def ==(other)
+      @from == other.from && @to == other.to && @source == other.source
     end
   end
 end

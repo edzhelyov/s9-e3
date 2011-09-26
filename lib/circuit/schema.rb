@@ -48,8 +48,7 @@ module Circuit
     end
 
     def remove_wire(from, to, source)
-      w = @elements.select { |x| x.kind_of?(Wire) }.detect { |x| x.eq(from, to, source) }
-      @elements.delete(w)
+      @elements.delete(Wire.new(from, to, source))
     end
   end
 end
