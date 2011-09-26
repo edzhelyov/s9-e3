@@ -29,15 +29,15 @@ module Circuit
     end
 
     def output_coordinates
-      Point.new(@x + 35, @y + 20)
+      Point.new(@x + Primitive::OUTPUT[:x], @y + Primitive::OUTPUT[:y])
     end
 
     def input_coordinates(source)
       case source
       when 0
-        Point.new(@x + 5, @y + 5)
+        Point.new(@x + Primitive::INPUT_1[:x], @y + Primitive::INPUT_1[:y])
       when 1
-        Point.new(@x + 5, @y + 35)
+        Point.new(@x + Primitive::INPUT_2[:x], @y + Primitive::INPUT_2[:y])
       end
     end
 
@@ -56,7 +56,7 @@ module Circuit
       @to = to
 
       line = "M #{from.x} #{from.y} L #{to.x} #{to.y}"
-      @wire = Batik::Path.new(:stroke => 'blue', :d => line)
+      @wire = Batik::Path.new(:stroke => 'lightgray', :d => line)
     end
 
     def to_svg
