@@ -43,6 +43,16 @@ module Circuit
       remove_wire(from, to, source)
     end
 
+    def toggle_connection(from, to, source)
+      f= @elements[from]
+      t= @elements[to]
+      if @elements.include?(Wire.new(f, t, source))
+        disconnect(from, to, source)
+      else
+        connect(from, to, source)
+      end
+    end
+
     def draw_wire(from, to, source)
       @elements << Wire.new(from, to, source)
     end
